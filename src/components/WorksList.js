@@ -1,4 +1,4 @@
-import {Card, CardBody, CardFooter, CardHeader, SimpleGrid, Text, Image } from '@chakra-ui/react';
+import {Box, Card, CardBody, CardFooter, CardHeader, SimpleGrid, Text, Image, Link } from '@chakra-ui/react';
 import React from 'react';
 
 export function WorksList ({works}) {
@@ -7,18 +7,22 @@ export function WorksList ({works}) {
             {works.map(work=>(
                 <Card key={work.id}>
                     <CardHeader borderColor='black'>
+                    <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke'>
                         <Image
-                            alignSelf='center'
+                            
                             objectFit='cover'
                             maxW={{ base: '100%', sm: '250px' }}
                             maxH={{ base: '100%', sm: '250px' }}
                             src={work.work_url}
                             alt={work.title}
                         />
+                    </Box>
                     </CardHeader>
 
                     <CardBody color='red.400'>
-                        <Text>Title: {work.title}</Text>
+                        <Link href={work.work_url} color="blue.500" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
+                            Title: {work.title}
+                        </Link>
                         <Text>Date Of Creation: {work.created_at}</Text>
                     </CardBody>
 
