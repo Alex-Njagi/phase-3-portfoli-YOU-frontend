@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@chakra-ui/react';
 import { TfiHeart } from "react-icons/tfi";
 
-const LikeButton = ({ workId, initialLiked }) => {
+export function LikeButton ({ workId, initialLiked }) {
   const [liked, setLiked] = useState(initialLiked);
 
   // Function to handle the like button click event
@@ -20,10 +20,10 @@ const LikeButton = ({ workId, initialLiked }) => {
         liked: updatedLiked,
       }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then(res => res.json())
+      .then(works => {
         // Update the liked state variable with the response from the API
-        setLiked(data.liked);
+        setLiked(works.liked);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -32,10 +32,8 @@ const LikeButton = ({ workId, initialLiked }) => {
 
   return (
     /*<button onClick={handleLikeClick}>{liked ? 'Unlike' : 'Like'}</button>*/
-    <Button leftIcon={<TfiHeart />} colorScheme='pink' variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick}>
+    <Button leftIcon={<TfiHeart />} colorScheme='pink' variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick} style={{ backgroundColor: liked ? "red" : "pink" }}>
         {liked ? 'Unlike' : 'Like'}
     </Button>
   );
 };
-
-export default LikeButton;

@@ -1,6 +1,7 @@
 import { Container, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
+import Test from "./components/Test";
 
 
 function App() {
@@ -19,22 +20,29 @@ function App() {
   }, [])
 
   return (
-    <Grid templateColumns="repeat (6, 1fr)" bgColor="gray.50">
+    <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">
       <GridItem
-        as="main"
-        colSpan="5"
-        p="40px"
+      as="aside"
+      colSpan="1"
+      bg="purple.400"
+      minHeight="100vh"
+      p="30px"
       >
-        <Heading as='h2' padding='20px'>
-            Welcome To Portfoli-YOU!
-        </Heading>
-
-        <WorksList works={works}/>
+      <span>sidebar</span>
       </GridItem>
-        
-        <div>Form</div>
+
+      <GridItem
+      as="main"
+      colSpan="5"
+      p="40px"
+      >
+      <WorksList works={works}/>
+      </GridItem>
     </Grid>
   )
 }
-
+{/*<Heading as='h2' padding='20px'>
+            Welcome To Portfoli-YOU!
+        </Heading>
+      */}
 export default App;

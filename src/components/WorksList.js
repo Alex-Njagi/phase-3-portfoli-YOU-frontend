@@ -1,6 +1,8 @@
 import {Box, Card, CardBody, CardFooter, CardHeader, Icon, SimpleGrid, Text, Image, Link, Button, Stack } from '@chakra-ui/react';
 import { TfiHeart, TfiHeartBroken, TfiTrash } from "react-icons/tfi";
-import LikeButton from './LikeButton';
+import { LikeButton } from './LikeButton';
+//import { DeleteButton } from './DeleteButton';
+
 
 export function WorksList ({works}) {
 
@@ -12,8 +14,8 @@ export function WorksList ({works}) {
                     <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke'>
                         <Image
                             objectFit='cover'
-                            maxW={{ base: '100%', sm: '250px' }}
-                            maxH={{ base: '100%', sm: '250px' }}
+                            maxW={{ base: '100%', sm: '200px' }}
+                            maxH={{ base: '100%', sm: '200px' }}
                             src={work.work_url}
                             alt={work.title}
                         />
@@ -27,10 +29,12 @@ export function WorksList ({works}) {
                         <Text>Date Of Creation: {work.created_at}</Text>
                     </CardBody>
 
+
                     <CardFooter>
                         <Stack direction='row' spacing={4}>
                             <LikeButton workId={work.id} initialLiked={work.liked} />
-                            <Button leftIcon={<TfiTrash />} colorScheme='green' variant='solid'>
+                            {/*<DeleteButton workId={work.id} onDelete={handleDelete} />*/}
+                            <Button leftIcon={<TfiTrash />} colorScheme='green' variant='solid' /*onClick={handleDeleteClick}*/>
                                 Delete
                             </Button>
                         </Stack>
