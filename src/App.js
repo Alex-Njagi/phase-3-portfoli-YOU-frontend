@@ -5,6 +5,7 @@ import Test from "./components/Test";
 import { Sidebar } from "./components/Sidebar";
 import { SearchWorks } from "./components/SearchWorks";
 import { SearchArtists } from "./components/SearchArtists";
+import { AddArtists } from "./components/AddArtists";
 
 
 function App() {
@@ -50,8 +51,9 @@ function App() {
       minHeight={{lg:"100vh"}}
       p={{base: "20px", lg: "30px"}}
       >
-      <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
-      <Sidebar artists={foundArtists}/>
+        <AddArtists />
+        <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
+        <Sidebar artists={foundArtists}/>
       </GridItem>
 
       <GridItem

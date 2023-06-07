@@ -11,7 +11,7 @@ export function WorksList ({works}) {
             {works.map(work=>(
                 <Card key={work.id}>
                     <CardHeader borderColor='black'>
-                    <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke'>
+                    <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke' borderRadius="5px">
                         <Image
                             objectFit='cover'
                             maxW={{ base: '100%', sm: '200px' }}

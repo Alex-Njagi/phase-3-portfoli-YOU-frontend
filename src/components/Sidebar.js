@@ -12,8 +12,7 @@ import React from "react";
 
 export function Sidebar ({artists}) {
     return (
-        <Box maxH="300px" overflowY="auto" scrollMargin="10px" borderRadius="5px" margin="10px">
-        
+        <Box maxH="150px" overflowY="auto" scrollMargin="10px" borderRadius="5px" margin="10px">
           <TableContainer backgroundColor="white">
             <Table variant='simple'>
                     <Thead>
