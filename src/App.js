@@ -1,4 +1,4 @@
-import { Container, Heading, VStack } from "@chakra-ui/react";
+import { Container, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
 
@@ -19,17 +19,21 @@ function App() {
   }, [])
 
   return (
-    <Container>
-      <VStack>
+    <Grid templateColumns="repeat (6, 1fr)" bgColor="gray.50">
+      <GridItem
+        as="main"
+        colSpan="5"
+        p="40px"
+      >
         <Heading as='h2' padding='20px'>
-          Welcome To Portfoli-YOU!
+            Welcome To Portfoli-YOU!
         </Heading>
 
         <WorksList works={works}/>
+      </GridItem>
         
         <div>Form</div>
-      </VStack>
-    </Container>
+    </Grid>
   )
 }
 

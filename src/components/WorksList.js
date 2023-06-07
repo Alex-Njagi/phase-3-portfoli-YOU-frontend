@@ -1,7 +1,9 @@
-import {Box, Card, CardBody, CardFooter, CardHeader, SimpleGrid, Text, Image, Link } from '@chakra-ui/react';
-import React from 'react';
+import {Box, Card, CardBody, CardFooter, CardHeader, Icon, SimpleGrid, Text, Image, Link, Button, Stack } from '@chakra-ui/react';
+import { TfiHeart, TfiHeartBroken, TfiTrash } from "react-icons/tfi";
+import LikeButton from './LikeButton';
 
 export function WorksList ({works}) {
+
     return (
         <SimpleGrid spacing={10} minChildWidth='300px'>
             {works.map(work=>(
@@ -9,7 +11,6 @@ export function WorksList ({works}) {
                     <CardHeader borderColor='black'>
                     <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke'>
                         <Image
-                            
                             objectFit='cover'
                             maxW={{ base: '100%', sm: '250px' }}
                             maxH={{ base: '100%', sm: '250px' }}
@@ -27,7 +28,12 @@ export function WorksList ({works}) {
                     </CardBody>
 
                     <CardFooter>
-                        <Text>Card Footer</Text>
+                        <Stack direction='row' spacing={4}>
+                            <LikeButton workId={work.id} initialLiked={work.liked} />
+                            <Button leftIcon={<TfiTrash />} colorScheme='green' variant='solid'>
+                                Delete
+                            </Button>
+                        </Stack>
                     </CardFooter>
                 </Card>
             ))}
