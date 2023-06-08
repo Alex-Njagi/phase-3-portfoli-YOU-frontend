@@ -1,10 +1,30 @@
 import {Box, Card, CardBody, CardFooter, CardHeader, Icon, SimpleGrid, Text, Image, Link, Button, Stack } from '@chakra-ui/react';
-import { TfiHeart, TfiHeartBroken, TfiTrash } from "react-icons/tfi";
+import { TfiTrash } from "react-icons/tfi";
 import { LikeButton } from './LikeButton';
-//import { DeleteButton } from './DeleteButton';
+import { useEffect } from 'react';
 
 
 export function WorksList ({works}) {
+    const handleDelete = async (workId, workTitle) => {
+        try {
+          const response = await fetch(`http://localhost:9292/works/${workId}`, {
+            method: 'DELETE',
+          });
+          if (response.ok) {
+            alert(`Successfully deleted ${workTitle}! Please refresh the page`)
+            console.log('Record deleted successfully');
+          } else {
+            console.log('Failed to delete record');
+          }
+        } catch (error) {
+          console.log('Error occurred while deleting record:', error);
+        }
+      };
+    
+      useEffect(() => {
+        return () => {
+        };
+      }, []);
 
     return (
         <SimpleGrid spacing={10} minChildWidth='300px'>
@@ -23,7 +43,7 @@ export function WorksList ({works}) {
                     </CardHeader>
 
                     <CardBody color='red.400'>
-                        <Link href={work.work_url} color="blue.500" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
+                        <Link href={work.work_url} isExternal color="blue.500" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
                             Title: {work.title}
                         </Link>
                         <Text color="black" fontSize="10px">By: {work.artist.name}</Text>
@@ -34,8 +54,7 @@ export function WorksList ({works}) {
                     <CardFooter>
                         <Stack direction='row' spacing={4}>
                             <LikeButton workId={work.id} initialLiked={work.liked} />
-                            {/*<DeleteButton workId={work.id} onDelete={handleDelete} />*/}
-                            <Button leftIcon={<TfiTrash />} colorScheme='green' variant='solid' /*onClick={handleDeleteClick}*/>
+                            <Button leftIcon={<TfiTrash />} colorScheme='green' variant='solid' onClick={(e) => handleDelete(work.id, work.title)}>
                                 Delete
                             </Button>
                         </Stack>
