@@ -30,9 +30,8 @@ export function AddArtists() {
         })
         .then((response) => response.json())
         .then((data) => {
-        console.log(data); // Assuming the response contains the created record data
+        console.log(data);
 
-        // Clear the form data
         setFormData({
           name: "",
           age: ""

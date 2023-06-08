@@ -1,4 +1,4 @@
-import { Container, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
+import { Box, Container, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
 import Test from "./components/Test";
@@ -6,6 +6,7 @@ import { Sidebar } from "./components/Sidebar";
 import { SearchWorks } from "./components/SearchWorks";
 import { SearchArtists } from "./components/SearchArtists";
 import { AddArtists } from "./components/AddArtists";
+import { AddWorks } from "./components/AddWorks";
 
 
 function App() {
@@ -54,6 +55,10 @@ function App() {
         <AddArtists />
         <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
         <Sidebar artists={foundArtists}/>
+
+        <Box>
+          <AddWorks />
+        </Box>
       </GridItem>
 
       <GridItem
