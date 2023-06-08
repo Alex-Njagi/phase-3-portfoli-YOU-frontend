@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Center, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
 import { AritstsList } from "./components/ArtistsList";
@@ -6,6 +6,7 @@ import { SearchWorks } from "./components/SearchWorks";
 import { SearchArtists } from "./components/SearchArtists";
 import { AddArtists } from "./components/AddArtists";
 import { AddWorks } from "./components/AddWorks";
+import './App.css';
 
 
 function App() {
@@ -61,11 +62,23 @@ function App() {
       >
         <Box 
           position="sticky"
-          top="10"
+          top="8"
           transform="translateY(0)"
           zIndex="1"
           borderRadius="10px"
         >
+          <Heading>
+            <Center>
+              <Text 
+                fontFamily="Pacifico"
+                letterSpacing="25px"
+                color="green.300"
+                paddingBottom="5px"
+              >
+                portfoliyou
+              </Text>
+            </Center>
+          </Heading>
           <AddArtists />    {/*Renders the component for adding artists*/}
           <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>    {/*Renders the component for searching for artists*/}
           <AritstsList artists={foundArtists}/>   {/*Renders the component for displaying artists*/}
@@ -81,6 +94,7 @@ function App() {
         p="40px"
         bgColor="rgba(98, 60, 99, 0.52)"
       >
+        
         <SearchWorks searchWorks = {searchWorks} setSearchWorks={setSearchWorks}/>    {/*Renders the component for search for works*/}
         <WorksList works={foundWorks}/>   {/*Renders the component for displaying works*/}
       </GridItem>
