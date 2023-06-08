@@ -1,7 +1,6 @@
-import { Box, Container, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
-import Test from "./components/Test";
 import { Sidebar } from "./components/Sidebar";
 import { SearchWorks } from "./components/SearchWorks";
 import { SearchArtists } from "./components/SearchArtists";
@@ -72,8 +71,5 @@ function App() {
     </Grid>
   )
 }
-{/*<Heading as='h2' padding='20px'>
-      Welcome To Portfoli-YOU!
-  </Heading>
-      */}
+
 export default App;

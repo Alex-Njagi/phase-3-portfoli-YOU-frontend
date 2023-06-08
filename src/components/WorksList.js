@@ -1,4 +1,4 @@
-import {Box, Card, CardBody, CardFooter, CardHeader, Icon, SimpleGrid, Text, Image, Link, Button, Stack } from '@chakra-ui/react';
+import { Box, Card, CardBody, CardFooter, CardHeader, SimpleGrid, Text, Image, Link, Button, Stack } from '@chakra-ui/react';
 import { TfiTrash } from "react-icons/tfi";
 import { LikeButton } from './LikeButton';
 import { useEffect } from 'react';

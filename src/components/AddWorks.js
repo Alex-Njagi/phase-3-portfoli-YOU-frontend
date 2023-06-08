@@ -89,7 +89,7 @@ export function AddWorks () {
             <Input 
                 type="file"
                 name="base64URL"
-                
+                accept=".jpg,.jpeg,.png,.gif"
                 onChange={(e)=>{
                     uploadImage(e)
                 }}
