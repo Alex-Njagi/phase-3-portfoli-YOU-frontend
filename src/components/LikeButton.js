@@ -32,7 +32,7 @@ export function LikeButton ({ workId, initialLiked }) {
 
   return (
     /*<button onClick={handleLikeClick}>{liked ? 'Unlike' : 'Like'}</button>*/
-    <Button leftIcon={<TfiHeart />} colorScheme='pink' variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick} style={{ backgroundColor: liked ? "red" : "pink" }}>
+    <Button leftIcon={<TfiHeart />} colorScheme="pink" variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick} style={{ backgroundColor: liked ? "red" : "pink" }}>
         {liked ? 'Unlike' : 'Like'}
     </Button>
   );

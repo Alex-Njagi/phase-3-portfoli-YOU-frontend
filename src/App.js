@@ -1,7 +1,7 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { WorksList } from "./components/WorksList";
 import { useEffect, useState } from "react";
-import { Sidebar } from "./components/Sidebar";
+import { AritstsList } from "./components/ArtistsList";
 import { SearchWorks } from "./components/SearchWorks";
 import { SearchArtists } from "./components/SearchArtists";
 import { AddArtists } from "./components/AddArtists";
@@ -45,28 +45,37 @@ function App() {
   return (
     <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">
       <GridItem
-      as="aside"
-      colSpan={{base: 6, lg: 2, xl: 1}}
-      bg="purple.400"
-      minHeight={{lg:"100vh"}}
-      p={{base: "20px", lg: "30px"}}
+        as="aside"
+        colSpan={{base: 6, lg: 2, xl: 1}}
+        bgColor="rgba(98, 60, 99, 0.52)"
+        minHeight={{lg:"100vh"}}
+        p={{base: "20px", lg: "30px"}}
+        position="relative"
       >
-        <AddArtists />
-        <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
-        <Sidebar artists={foundArtists}/>
-
-        <Box>
-          <AddWorks />
+        <Box 
+          position="sticky"
+          top="10"
+          transform="translateY(0)"
+          zIndex="1"
+          borderRadius="10px"
+        >
+          <AddArtists />
+          <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
+          <AritstsList artists={foundArtists}/>
+            <Box padding="10px">
+              <AddWorks />
+            </Box>
         </Box>
       </GridItem>
 
       <GridItem
-      as="main"
-      colSpan={{base: 6, lg: 4, xl: 5}}
-      p="40px"
+        as="main"
+        colSpan={{base: 6, lg: 4, xl: 5}}
+        p="40px"
+        bgColor="rgba(98, 60, 99, 0.52)"
       >
-      <SearchWorks searchWorks = {searchWorks} setSearchWorks={setSearchWorks}/>
-      <WorksList works={foundWorks}/>
+        <SearchWorks searchWorks = {searchWorks} setSearchWorks={setSearchWorks}/>
+        <WorksList works={foundWorks}/>
       </GridItem>
     </Grid>
   )

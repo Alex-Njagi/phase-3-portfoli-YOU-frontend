@@ -28,9 +28,9 @@ export function WorksList ({works}) {
     return (
         <SimpleGrid spacing={10} minChildWidth='300px'>
             {works.map(work=>(
-                <Card key={work.id}>
+                <Card key={work.id} bgColor="rgba(98, 60, 99, 0.85)" border="3px" borderRadius="15px" borderStyle="solid" borderColor="rgba(61, 245, 39, 0.39)" boxShadow="xl">
                     <CardHeader borderColor='black'>
-                    <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor='whitesmoke' borderRadius="5px">
+                    <Box display="flex" justifyContent="center" alignItems="center" padding={4} backgroundColor="rgba(98, 60, 99, 0.52)" borderRadius="5px">
                         <Image
                             objectFit='cover'
                             maxW={{ base: '100%', sm: '200px' }}
@@ -41,12 +41,12 @@ export function WorksList ({works}) {
                     </Box>
                     </CardHeader>
 
-                    <CardBody color='red.400'>
-                        <Link href={work.work_url} isExternal color="blue.500" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
+                    <CardBody color="whitesmoke">
+                        <Link href={work.work_url} isExternal color="green.500" fontSize="20px"fontWeight="bold" _hover={{ textDecoration: "underline" }}>
                             Title: {work.title}
                         </Link>
-                        <Text color="black" fontSize="10px">By: {work.artist.name}</Text>
-                        <Text>Date Of Creation: {work.creation_date}</Text>
+                        <Text color="black" fontSize="13px">By: {work.artist.name}</Text>
+                        <Text fontSize="15px">Date Of Creation: {work.creation_date}</Text>
                     </CardBody>
 
 

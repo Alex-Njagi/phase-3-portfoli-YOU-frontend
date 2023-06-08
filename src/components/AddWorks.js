@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react"
+import { Box, Button, Center, Input, Text } from "@chakra-ui/react"
 import { useState, useEffect } from "react";
 import { TfiSave } from "react-icons/tfi";
 
@@ -81,8 +81,8 @@ export function AddWorks () {
     };
 
     return (
-        <Box direction="column"  backgroundColor="white" padding="10px">
-            <Text textAlign="center">Add Works</Text>
+        <Box direction="column" backgroundColor="rgba(98, 60, 99, 0.52)" padding="10px" border="3px" borderRadius="15px" borderStyle="solid" borderColor="rgba(61, 245, 39, 0.39)" boxShadow="xl">
+            <Text textAlign="center" color="rgba(39, 245, 86, 1)" fontWeight="bold" letterSpacing="15px">works</Text>
             <Input placeholder="Title" width="240px" margin="5px" value={formData.title} name="title" onChange={handleFormData}></Input>
             <Input placeholder="Artist ID" width="105px" margin="5px" value={formData.artistId} onChange={handleFormData} name="artistId"></Input>
             <Input placeholder="Creation Date" width="240px" margin="5px" type="date" value={formData.creationDate} onChange={handleFormData} name="creationDate"></Input>
@@ -94,11 +94,11 @@ export function AddWorks () {
                     uploadImage(e)
                 }}
             />
-            <Box justifyContent="center" alignItems="center">
-                <Button leftIcon={<TfiSave />} colorScheme='blue' variant='solid' margin="5px" size="sm" onClick={handleAddWork}>
+            <Center>
+                <Button leftIcon={<TfiSave />} colorScheme='green' variant='solid' margin="5px" size="sm" onClick={handleAddWork}>
                     Save
                 </Button>
-            </Box>
+            </Center>
         </Box>
     )
 }

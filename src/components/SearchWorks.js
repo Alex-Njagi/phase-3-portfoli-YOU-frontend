@@ -1,12 +1,21 @@
-import { Input } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { TfiSearch } from "react-icons/tfi";
 
 export function SearchWorks ({searchWorks, setSearchWorks}) {
     return (
-        <Input 
-            placeholder="Search for Works" 
-            marginBottom="10px"
-            value={searchWorks}
-            onChange={(e)=> {setSearchWorks(e.target.value)}}
-        />
+        <InputGroup>
+            <InputLeftElement
+                pointerEvents="none"
+                children={<TfiSearch color="gray.300" />}
+            />
+            <Input 
+                borderStyle="solid" borderColor="rgba(61, 245, 39, 0.39)"
+                borderRadius="15px"
+                placeholder= "Search for Works"
+                marginBottom="10px"
+                value={searchWorks}
+                onChange={(e)=> {setSearchWorks(e.target.value)}}
+            />
+        </InputGroup>
     )
 }

@@ -43,11 +43,11 @@ export function AddArtists() {
   };
 
     return (
-        <Box direction="row"  backgroundColor="white" padding="10px">
-            <Text textAlign="center">Join As An Artist!</Text>
+        <Box direction="row" backgroundColor="rgba(98, 60, 99, 0.52)" border="3px" borderRadius="15px" borderStyle="solid" borderColor="rgba(61, 245, 39, 0.39)" boxShadow="xl" padding="10px" margin="10px">
+            <Text textAlign="center" color="rgba(39, 245, 86, 1)" fontWeight="bold" letterSpacing="15px">artists</Text>
             <Input placeholder="Name" width="170px" margin="5px" value={formData.name} name="name" onChange={handleFormData}></Input>
             <Input placeholder="Age" width="105px" margin="5px" value={formData.age} name="age" onChange={handleFormData}></Input>
-            <Button leftIcon={<TfiSave />} colorScheme='green' variant='solid' margin="5px" onClick={handleAddArtist} size="sm">
+            <Button leftIcon={<TfiSave />} backgroundColor="rgba(61, 245, 39, 0.39)" variant='solid' margin="5px" onClick={handleAddArtist} size="sm">
             </Button>
         </Box>
     )
