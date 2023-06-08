@@ -12,9 +12,8 @@ export function WorksList ({works}) {
           });
           if (response.ok) {
             alert(`Successfully deleted ${workTitle}! Please refresh the page`)
-            console.log('Record deleted successfully');
           } else {
-            console.log('Failed to delete record');
+            alert(`Oh No! Failed to delete record`)
           }
         } catch (error) {
           console.log('Error occurred while deleting record:', error);
