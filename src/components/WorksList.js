@@ -5,14 +5,17 @@ import { useEffect } from 'react';
 
 
 export function WorksList ({works}) {
+    //This code handles the deletion of works by sending a DELETE request to the API
     const handleDelete = async (workId, workTitle) => {
         try {
           const response = await fetch(`http://localhost:9292/works/${workId}`, {
             method: 'DELETE',
           });
           if (response.ok) {
+            //Successfully alerts the user of a deletion
             alert(`Successfully deleted ${workTitle}! Please refresh the page`)
           } else {
+            //Alerts the user of an error should it occur
             alert(`Oh No! Failed to delete record`)
           }
         } catch (error) {

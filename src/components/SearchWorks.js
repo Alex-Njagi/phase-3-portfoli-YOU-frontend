@@ -1,6 +1,7 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { TfiSearch } from "react-icons/tfi";
 
+//This component is responsible for searching for artists in the artists table
 export function SearchWorks ({searchWorks, setSearchWorks}) {
     return (
         <InputGroup>

@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { TfiSave } from "react-icons/tfi";
 
 export function AddArtists() {
+    //Creates an empty state for the name and age data entered in as a form
     const [formData, setFormData] = useState({
         name: '',
         age: ''
     })
 
+    //Ensures that for each form field the data is entered as a state that can be read and stored
     const handleFormData =(e) => {
         setFormData({
             ...formData,
@@ -16,11 +18,11 @@ export function AddArtists() {
     }
 
     useEffect(() => {
-        // Empty dependency array to run the effect only once after initial render
+    // Empty dependency array to run the effect only once after initial render
       }, []);
     
+      //This block persists an artist that is saved to the API using a POST request
       const handleAddArtist = () => {
-        // Make a PUT request to the API endpoint
         fetch('http://localhost:9292/artists', {
           method: "POST",
           headers: {
@@ -32,11 +34,13 @@ export function AddArtists() {
         .then((data) => {
         console.log(data);
 
+        //Empties the formData state to show that the persistence is successful
         setFormData({
           name: "",
           age: ""
         });
       })
+      //Logs an error message in the case that one occurs
       .catch((error) => {
         console.error(error);
       });

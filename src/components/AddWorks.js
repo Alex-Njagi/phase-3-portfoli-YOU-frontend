@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { TfiSave } from "react-icons/tfi";
 
 export function AddWorks () {
+    //Creates an empty state for the title, artistId, creationDate, base64URL and liked fields and saves them to data entered in as a form
     const [formData, setFormData] = useState({
         title: '',
         artistId: '',
@@ -11,6 +12,7 @@ export function AddWorks () {
         liked: false
     })
 
+    //Ensures that for each form field the data is entered as a state that can be read and stored
     const handleFormData =(e) => {
         setFormData({
             ...formData,
@@ -18,25 +20,30 @@ export function AddWorks () {
         })
     }
 
+    //This code is used to invoke the function that converts images to base64 code
     const uploadImage = async (e) => {
         const file = e.target.files[0];
         const base64 = await convertToBase64(file);
-      
+        
+        //As well as accesses the formData state and saves the converted image's code
         setFormData((prevFormData) => ({
           ...prevFormData,
           base64URL: base64,
         }));
     };
       
+    //This function is used to convert images for works that are added into base64 code
     const convertToBase64 = (file) => {
         return new Promise ((resolve, reject)=>{
             const fileReader = new FileReader();
             fileReader.readAsDataURL(file)
 
+            //Ensures the result is correctly saved
             fileReader.onload = ()=>{
                 resolve(fileReader.result)
             }
 
+            //Handles the occurence of an error when saving
             fileReader.onerror = (error)=>{
                 reject(error)
             }
@@ -47,8 +54,8 @@ export function AddWorks () {
         // Empty dependency array to run the effect only once after initial render
     }, []);
     
+    //This function creates a POST request that saves the created work's record to the backend
       const handleAddWork = () => {
-        // Make a PUT request to the API endpoint
         fetch('http://localhost:9292/works', {
           method: "POST",
           headers: {
@@ -64,9 +71,9 @@ export function AddWorks () {
         })
         .then((res) => res.json())
         .then((data) => {
-        console.log(data); // Assuming the response contains the created record data
+        console.log(data);
 
-        // Clear the form data
+        //Empties the formData state to show that the persistence is successful
         setFormData({
             title: '',
             artistId: '',
@@ -75,6 +82,7 @@ export function AddWorks () {
             liked: false
         });
         })
+        //Logs out an error message if one occurs
         .catch((error) => {
         console.error(error);
       });

@@ -9,12 +9,16 @@ import { AddWorks } from "./components/AddWorks";
 
 
 function App() {
-
+  //Creates an empty state for storing works
   const [works, setWorks] = useState([]);
+  //Creates an empty state for storing artists
   const [artists, setArtists] = useState([]);
+  //Creates an empty state for search for works
   const [searchWorks, setSearchWorks] = useState('');
+  //Creates an empty state for search for artists
   const [searchArtists, setSearchArtists] = useState('')
 
+  //This code uses a GET request to the API to fetch all the works
   useEffect (()=>{
     fetch('http://localhost:9292/works', {
       method: 'GET',
@@ -26,6 +30,7 @@ function App() {
     .then ((works)=> setWorks(works))
   }, [])
 
+  //This code uses a GET request to the API to fetch all the artists
   useEffect (()=>{
     fetch('http://localhost:9292/artists', {
       method: 'GET',
@@ -37,8 +42,10 @@ function App() {
     .then ((artists)=> setArtists(artists))
   }, [])
 
+  //Filters the works on the basis of the title by using the searchWorks state
   const foundWorks = works.filter((work)=> work.title.toLowerCase().includes(searchWorks.toLowerCase())
   )
+  //Filters the artists on the basis of the name by using the searchWorks state
   const foundArtists = artists.filter((artist)=> artist.name.toLowerCase().includes(searchArtists.toLowerCase())
   )
 
@@ -59,11 +66,11 @@ function App() {
           zIndex="1"
           borderRadius="10px"
         >
-          <AddArtists />
-          <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>
-          <AritstsList artists={foundArtists}/>
+          <AddArtists />    {/*Renders the component for adding artists*/}
+          <SearchArtists searchArtists={searchArtists} setSearchArtists={setSearchArtists}/>    {/*Renders the component for searching for artists*/}
+          <AritstsList artists={foundArtists}/>   {/*Renders the component for displaying artists*/}
             <Box padding="10px">
-              <AddWorks />
+              <AddWorks />    {/*Renders the component for adding works*/}
             </Box>
         </Box>
       </GridItem>
@@ -74,8 +81,8 @@ function App() {
         p="40px"
         bgColor="rgba(98, 60, 99, 0.52)"
       >
-        <SearchWorks searchWorks = {searchWorks} setSearchWorks={setSearchWorks}/>
-        <WorksList works={foundWorks}/>
+        <SearchWorks searchWorks = {searchWorks} setSearchWorks={setSearchWorks}/>    {/*Renders the component for search for works*/}
+        <WorksList works={foundWorks}/>   {/*Renders the component for displaying works*/}
       </GridItem>
     </Grid>
   )

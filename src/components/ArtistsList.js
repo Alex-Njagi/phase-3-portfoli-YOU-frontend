@@ -10,6 +10,7 @@ import {
   } from '@chakra-ui/react'
 import React from "react";
 
+//This component is used to display the table of artists present on the left side of the website
 export function AritstsList ({artists}) {
     return (
         <Box maxH="150px" overflowY="auto" scrollMargin="10px" borderRadius="15px" margin="10px" border="3px" borderStyle="solid" borderColor="rgba(61, 245, 39, 0.39)">

@@ -3,14 +3,14 @@ import { Button } from '@chakra-ui/react';
 import { TfiHeart } from "react-icons/tfi";
 
 export function LikeButton ({ workId, initialLiked }) {
+  //Creates a state for the "liked" field in the backend and sets it to the value fetched from the API
   const [liked, setLiked] = useState(initialLiked);
 
-  // Function to handle the like button click event
+  //This function handles the clicking of the like button
   const handleLikeClick = () => {
-    // Toggle the liked status
     const updatedLiked = !liked;
 
-    // Send a PATCH request to update the liked status in the API
+    //This code sends a PATCH request to the API that updates the "liked" status of a posted work
     fetch(`http://localhost:9292/works/${workId}`, {
       method: 'PATCH',
       headers: {
@@ -22,17 +22,17 @@ export function LikeButton ({ workId, initialLiked }) {
     })
       .then(res => res.json())
       .then(works => {
-        // Update the liked state variable with the response from the API
+        //Updates the state of "liked"
         setLiked(works.liked);
       })
+      //Logs an error message should one occur
       .catch(error => {
         console.error('Error:', error);
       });
   };
 
   return (
-    /*<button onClick={handleLikeClick}>{liked ? 'Unlike' : 'Like'}</button>*/
-    <Button leftIcon={<TfiHeart />} colorScheme="pink" variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick} style={{ backgroundColor: liked ? "red" : "pink" }}>
+    <Button leftIcon={<TfiHeart />} colorScheme='pink' variant='solid' _hover={{colorScheme: 'red'}} onClick={handleLikeClick} style={{ backgroundColor: liked ? "red" : "pink" }}>
         {liked ? 'Unlike' : 'Like'}
     </Button>
   );
