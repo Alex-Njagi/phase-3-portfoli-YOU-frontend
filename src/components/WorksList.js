@@ -26,6 +26,7 @@ export function WorksList ({works}) {
                         <Link href={work.work_url} color="blue.500" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
                             Title: {work.title}
                         </Link>
+                        <Text color="black" fontSize="10px">By: {work.artist.name}</Text>
                         <Text>Date Of Creation: {work.creation_date}</Text>
                     </CardBody>
 

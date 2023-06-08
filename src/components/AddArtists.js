@@ -46,9 +46,9 @@ export function AddArtists() {
     return (
         <Box direction="row"  backgroundColor="white" padding="10px">
             <Text textAlign="center">Join As An Artist!</Text>
-            <Input placeholder="Name" width="185px" margin="5px" value={formData.name} name="name" onChange={handleFormData}></Input>
+            <Input placeholder="Name" width="170px" margin="5px" value={formData.name} name="name" onChange={handleFormData}></Input>
             <Input placeholder="Age" width="105px" margin="5px" value={formData.age} name="age" onChange={handleFormData}></Input>
-            <Button leftIcon={<TfiSave />} colorScheme='green' variant='solid' margin="5px" onClick={handleAddArtist}>
+            <Button leftIcon={<TfiSave />} colorScheme='green' variant='solid' margin="5px" onClick={handleAddArtist} size="sm">
             </Button>
         </Box>
     )
